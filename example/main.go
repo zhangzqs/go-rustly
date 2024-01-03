@@ -22,7 +22,7 @@ type Collector struct {
 }
 
 func Extend[T IntoIterator[Pair[Into[Stringer], Into[Stringer]]]](c *Collector, it T) {
-	c.infos.Extend(MapNew[Pair[Into[Stringer], Into[Stringer]], Pair[Stringer, Stringer]](
+	c.infos.Extend(NewMap[Pair[Into[Stringer], Into[Stringer]], Pair[Stringer, Stringer]](
 		it.IntoIter(),
 		func(p Pair[Into[Stringer], Into[Stringer]]) Pair[Stringer, Stringer] {
 			return Pair[Stringer, Stringer]{first: p.first.Into(), second: p.second.Into()}

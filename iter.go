@@ -20,6 +20,6 @@ func (m *MapIterator[T, U]) IntoIter() Iterator[U] {
 	return m
 }
 
-func MapNew[T any, U any](iter Iterator[T], fn func(T) U) *MapIterator[T, U] {
+func NewMap[T any, U any](iter Iterator[T], fn func(T) U) *MapIterator[T, U] {
 	return &MapIterator[T, U]{iter: iter, fn: fn}
 }
